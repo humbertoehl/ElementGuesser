@@ -153,6 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const elementDiv = document.createElement("div");
       elementDiv.classList.add("element", element.block); // Add the block class
       elementDiv.dataset.atomicNumber = element.atomicNumber;
+      elementDiv.innerHTML = `<span class="atomic-number">${element.atomicNumber}</span><br><span class="symbol">?</span><br><span class="name">???</span>`;
   
       blockDivs[element.block].appendChild(elementDiv);
     }

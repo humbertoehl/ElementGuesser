@@ -2,60 +2,65 @@ body {
   text-align: center;
   font-family: 'Merriweather', serif;
   margin: auto;
-  padding: 80px;
+  padding: 15px;
   background-color: #D9D9D9;
 }
 
 h1 {
   text-align: center;
-  font-size: 80px;
+  font-size: 70px;
+}
+img {
+  width: 25%;
+  margin-bottom: -40px;
 }
 
 #periodic-table {
+   text-align: center;
     align-items: center;
     justify-items: center;
     display: grid;
     grid-template-columns: repeat(18, 1fr); /* Adjust columns based on your layout */
     grid-template-rows: repeat(10,1fr);
-    gap: 10px;
-  }
+}
+
 
 .element {
-    width: 100px; /* Adjust the width and height based on your preference */
-    height: 100px;
+  background-color: #c0c0c0;
+    width: 1fr;
+    height: 1fr;
     border: 2px solid #000;
     text-align: center;
-    border-radius: 15px;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     position: relative;
-    overflow-x: clip;
-    overflow-y: clip;
-  }
+    overflow: hidden;
+}
+
+.element:hover{
+  transform: scale(3.4);
+  border-width: 1px;
+  border-radius: 5px;
+  z-index: 5;
+  overflow-x: visible;
+}
 
 .symbol {
     font-weight: 700;
-    font-size: 180%;
+    font-size: 80%;
 }
   
 .name {
     font-style: italic;
-    align-self: flex-start;
+    font-size: 40%;
 }
-.element:hover{
-  overflow: visible;
-  font-weight: 900;
-  font-size: 150%;
-  z-index: 2;
-}
+
 
   
 .atomic-number {
     font-size: 80%;
-    margin-left: 5px;
-    margin-right: auto;
     align-self: flex-start;
 }
 
@@ -67,14 +72,14 @@ h1 {
 }
 
 #p {
-  grid-column: 13/18;
+  grid-column: 14/19;
   grid-row: 2/8;
   display: grid;
   grid-template-columns: repeat(6,1fr);
 }
 
 #d {
-  grid-column: 3/13;
+  grid-column: 4/14;
   grid-row: 3/8;
   display: grid;
   grid-template-columns: repeat(10,1fr);
@@ -88,9 +93,12 @@ h1 {
 }
 
 #elementInput {
-  width: 500px;
+  padding: 5px;
+  width: 90%;
+  max-width: 280px;
+  border-radius: 15px;
   display: inline-block;
-  margin: 50px 30px 0px auto;
+  margin: 50px auto 0px auto;
   font-size: 50px;
 }
 
@@ -99,75 +107,40 @@ h1 {
   text-align: center;
   font-size: 30px;
 }
-
-@media screen and (max-width: 2100px) {
-.element {
-  width: 85px; /* Adjust the width and height based on your preference */
-  height: 85px;
-}
-}
-
-@media screen and (max-width: 1850px) {
+@media screen and (min-width: 800px) {
   .element {
-    width: 70px; /* Adjust the width and height based on your preference */
-    height: 70px;
-  }
-}
-
-@media screen and (max-width: 1850px) {
-  .element {
-    width: 60px; /* Adjust the width and height based on your preference */
-    height: 60px;
-  }
-}
-
-@media screen and (max-width: 1400px) {
-  .element {
-    width: 50px; /* Adjust the width and height based on your preference */
-    height: 50px;
-  }
-  body {
-    padding: 30px;
-  }
-  #periodic-table {
-    margin-top: 20px;
-    grid-template-columns: repeat(15, 1fr); /* Adjust columns based on your layout */
-    grid-template-rows: repeat(16,1fr);
-  }
-  #s {
-    grid-column: 2/4;
-    grid-row: 1/8;
-    }
-  
-  #p {
-    grid-column: 7/12;
-    grid-row: 2/8;
-   }
-  
-  #d {
-    grid-column: 3/13;
-    grid-row: 8/12;
-  }
-  
-  #f {
-    grid-column: 1/15;
-    grid-row: 12/14;
-   }
-
-  #f > .element, #d > .element {
-    width: 30px;
-    height: 30px;
-  }
-  #s > .element, #p > .element {
-    width: 50px;
-    height: 50px;
-  }
-
-}
-
-@media screen and (max-width: 610px) {
-  #s > .element, #p > .element {
     width: 35px;
     height: 35px;
+  }
+  .name {
+    font-size: 50%;
+  }
+  img {
+    width: 10%;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .element {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+  }
+  .name {
+    font-size: 85%;
+  }
+  .symbol{
+    font-size: 120%;
+  }
+  .element:hover{
+    transform: scale(2);
+  }
+  #periodic-table {
+    margin-top: -70px;
+  }
+}
+@media screen and (min-width: 1450px) {
+  .element {
+    width: 70px;
+    height: 70px;
   }
 }
