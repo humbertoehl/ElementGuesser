@@ -1,0 +1,173 @@
+body {
+  text-align: center;
+  font-family: 'Merriweather', serif;
+  margin: auto;
+  padding: 80px;
+  background-color: #D9D9D9;
+}
+
+h1 {
+  text-align: center;
+  font-size: 80px;
+}
+
+#periodic-table {
+    align-items: center;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(18, 1fr); /* Adjust columns based on your layout */
+    grid-template-rows: repeat(10,1fr);
+    gap: 10px;
+  }
+
+.element {
+    width: 100px; /* Adjust the width and height based on your preference */
+    height: 100px;
+    border: 2px solid #000;
+    text-align: center;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-x: clip;
+    overflow-y: clip;
+  }
+
+.symbol {
+    font-weight: 700;
+    font-size: 180%;
+}
+  
+.name {
+    font-style: italic;
+    align-self: flex-start;
+}
+.element:hover{
+  overflow: visible;
+  font-weight: 900;
+  font-size: 150%;
+  z-index: 2;
+}
+
+  
+.atomic-number {
+    font-size: 80%;
+    margin-left: 5px;
+    margin-right: auto;
+    align-self: flex-start;
+}
+
+#s {
+  grid-column: 1/3;
+  grid-row: 1/8;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+
+#p {
+  grid-column: 13/18;
+  grid-row: 2/8;
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+}
+
+#d {
+  grid-column: 3/13;
+  grid-row: 3/8;
+  display: grid;
+  grid-template-columns: repeat(10,1fr);
+}
+
+#f {
+  grid-column: 3/18;
+  grid-row: 8/10;
+  display: grid;
+  grid-template-columns: repeat(15,1fr);
+}
+
+#elementInput {
+  width: 500px;
+  display: inline-block;
+  margin: 50px 30px 0px auto;
+  font-size: 50px;
+}
+
+#scoreText {
+  display: inline-block;
+  text-align: center;
+  font-size: 30px;
+}
+
+@media screen and (max-width: 2100px) {
+.element {
+  width: 85px; /* Adjust the width and height based on your preference */
+  height: 85px;
+}
+}
+
+@media screen and (max-width: 1850px) {
+  .element {
+    width: 70px; /* Adjust the width and height based on your preference */
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: 1850px) {
+  .element {
+    width: 60px; /* Adjust the width and height based on your preference */
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .element {
+    width: 50px; /* Adjust the width and height based on your preference */
+    height: 50px;
+  }
+  body {
+    padding: 30px;
+  }
+  #periodic-table {
+    margin-top: 20px;
+    grid-template-columns: repeat(15, 1fr); /* Adjust columns based on your layout */
+    grid-template-rows: repeat(16,1fr);
+  }
+  #s {
+    grid-column: 3/5;
+    grid-row: 1/8;
+    }
+  
+  #p {
+    grid-column: 7/12;
+    grid-row: 2/8;
+   }
+  
+  #d {
+    grid-column: 3/13;
+    grid-row: 8/12;
+  }
+  
+  #f {
+    grid-column: 1/15;
+    grid-row: 12/14;
+   }
+
+  #f > .element {
+    width: 40px;
+    height: 40px;
+  }
+  #s > .element, #p > .element {
+    width: 50px;
+    height: 50px;
+  }
+
+}
+
+@media screen and (max-width: 610px) {
+  #s > .element, #p > .element {
+    width: 35px;
+    height: 35px;
+  }
+}
