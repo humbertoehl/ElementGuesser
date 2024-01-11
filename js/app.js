@@ -124,7 +124,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const scoreText = document.getElementById("scoreText");
   const periodicTableDiv = document.getElementById("periodic-table");
 
-  let totalElementsFound = 0;
+  let totalElementsFound = 0; // Initialize the counter
+  const foundElements = []; // Keep track of found elements
 
   const groupBlockColors = {
     "nonmetal": "#BF1F2C",
@@ -162,6 +163,13 @@ document.addEventListener("DOMContentLoaded", function () {
   function updatePeriodicTable() {
     const inputSymbol = elementInput.value.trim().toUpperCase();
 
+    // Check if the element has already been found
+    if (foundElements.includes(inputSymbol)) {
+      // You can handle this case as needed, for example, by displaying a message to the user
+      console.log(`Element ${inputSymbol} has already been found.`);
+      return;
+    }
+
     // Find the corresponding element in the periodic table
     const foundElement = periodicTable.find(
       (element) => element.symbol.toUpperCase() === inputSymbol || element.name.toUpperCase() === inputSymbol
@@ -171,10 +179,15 @@ document.addEventListener("DOMContentLoaded", function () {
       // Update the corresponding element card with symbol, name, atomic number, and color
       const elementDiv = periodicTableDiv.querySelector(`[data-atomic-number="${foundElement.atomicNumber}"]`);
       if (elementDiv) {
-        elementDiv.innerHTML = `<span class="atomic-number">${foundElement.atomicNumber}</span><br><span class="symbol">${foundElement.symbol}</span><br><span class="name">${foundElement.name}</span>`;
+        elementDiv.innerHTML = `
+          <div class="atomic-number">${foundElement.atomicNumber}</div>
+          <div class="symbol">${foundElement.symbol}</div>
+          <div class="name">${foundElement.name}</div>
+        `;
         elementDiv.style.backgroundColor = groupBlockColors[foundElement.groupBlock];
         totalElementsFound++; // Increment the counter
         scoreText.textContent = `${totalElementsFound}/${periodicTable.length} elements found!`; // Update scoreText
+        foundElements.push(inputSymbol); // Add the found element to the array
       }
     }
   }
