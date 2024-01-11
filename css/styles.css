@@ -118,6 +118,10 @@ img {
   img {
     width: 10%;
   }
+  .element:hover{
+    transform: scale(5);
+  }
+
 }
 @media screen and (min-width: 1100px) {
   .element {
