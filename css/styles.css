@@ -27,8 +27,8 @@ img {
 
 .element {
   background-color: #c0c0c0;
-    width: 1fr;
-    height: 1fr;
+    width: 18px;
+    height: 30px;
     border: 2px solid #000;
     text-align: center;
     border-radius: 8px;
