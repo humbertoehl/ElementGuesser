@@ -20,7 +20,7 @@ img {
     align-items: center;
     justify-items: center;
     display: grid;
-    grid-template-columns: repeat(18, 1fr); /* Adjust columns based on your layout */
+    grid-template-columns: repeat(18, 1fr);
     grid-template-rows: repeat(10,1fr);
 }
 

@@ -124,8 +124,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const scoreText = document.getElementById("scoreText");
   const periodicTableDiv = document.getElementById("periodic-table");
 
-  let totalElementsFound = 0; // Initialize the counter
-  const foundElements = []; // Keep track of found elements
+  let totalElementsFound = 0; 
+  const foundElements = []; 
 
   const groupBlockColors = {
     "nonmetal": "#BF1F2C",
@@ -141,7 +141,6 @@ document.addEventListener("DOMContentLoaded", function () {
     "unknown": "gray",
   };
 
-  // Function to dynamically generate the periodic table elements
   function generatePeriodicTable() {
     const blockDivs = {
       s: document.getElementById("s"),
@@ -152,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     for (const element of periodicTable) {
       const elementDiv = document.createElement("div");
-      elementDiv.classList.add("element", element.block); // Add the block class
+      elementDiv.classList.add("element", element.block);
       elementDiv.dataset.atomicNumber = element.atomicNumber;
       elementDiv.innerHTML = `<span class="atomic-number">${element.atomicNumber}</span><br><span class="symbol">?</span><br><span class="name">???</span>`;
   
@@ -163,20 +162,17 @@ document.addEventListener("DOMContentLoaded", function () {
   function updatePeriodicTable() {
     const inputSymbol = elementInput.value.trim().toUpperCase();
 
-    // Check if the element has already been found
     if (foundElements.includes(inputSymbol)) {
-      // You can handle this case as needed, for example, by displaying a message to the user
       console.log(`Element ${inputSymbol} has already been found.`);
       return;
     }
 
-    // Find the corresponding element in the periodic table
     const foundElement = periodicTable.find(
-      (element) => element.symbol.toUpperCase() === inputSymbol || element.name.toUpperCase() === inputSymbol
+      (element) => element.symbol.toUpperCase() === inputSymbol   //Maybe in the future add difficulty by considering || element.name.toUpperCase() === inputSymbol
     );
 
+
     if (foundElement) {
-      // Update the corresponding element card with symbol, name, atomic number, and color
       const elementDiv = periodicTableDiv.querySelector(`[data-atomic-number="${foundElement.atomicNumber}"]`);
       if (elementDiv) {
         elementDiv.innerHTML = `
@@ -185,9 +181,9 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="name">${foundElement.name}</div>
         `;
         elementDiv.style.backgroundColor = groupBlockColors[foundElement.groupBlock];
-        totalElementsFound++; // Increment the counter
-        scoreText.textContent = `${totalElementsFound}/${periodicTable.length} elements found!`; // Update scoreText
-        foundElements.push(inputSymbol); // Add the found element to the array
+        totalElementsFound++; 
+        scoreText.textContent = `${totalElementsFound}/${periodicTable.length} elements found!`;
+        foundElements.push(inputSymbol);
       }
     }
   }
@@ -199,6 +195,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Call the function to generate the periodic table on page load
   generatePeriodicTable();
 });
